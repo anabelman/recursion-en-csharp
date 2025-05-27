@@ -1,0 +1,29 @@
+using System;
+// Este es un ejemplo de recursividad en C#
+class Program
+{
+    static void Main() // "Main" es el punto de entrada del programa, o sea, el jefe
+    {
+        // Aqui va la interaccion con el usuario
+        Console.WriteLine("Escribe un numero positivo:");
+        string entrada = Console.Readline();
+
+        if (int.TryParse(entrada, out int numero) && numero >= 0)
+        {
+            int digitos = ContarDigitos(numero);
+            Console.WriteLine($"El número {numero} tiene {digitos} digito(s).");
+        }
+        else
+        {
+            Console.WriteLine("Por favor, ingresa un número positivo válido.");
+        }
+    }
+    // Aqui irá nuestra función recursiva
+    static int ContarDigitos(int numero) // "ContarDigitos" es el ayudante
+    {
+        if (numero < 10)
+            return 1;
+        else
+            return 1 + ContarDigitos(numero / 10);
+    }
+}
