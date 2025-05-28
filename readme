@@ -1,25 +1,53 @@
+# Recursividad en C# - Contar Dígitos
+
+Este proyecto muestra un ejemplo simple y claro de **recursividad** usando C#.  
+El objetivo es contar cuántos dígitos tiene un número entero positivo sin usar conversiones a texto ni métodos de cadenas. Solo recursividad pura.
+
+---
+
+## ¿Qué es la recursividad?
+
+La recursividad es una técnica en programación donde una función se llama a sí misma para resolver problemas complejos descomponiéndolos en problemas más pequeños.
+
+> "Divide y vencerás, pero con estilo."
+
+Una función recursiva siempre debe tener:
+- Un **caso base** (condición que detiene las llamadas).
+- Una **llamada recursiva** (cuando se llama a sí misma con una versión más simple del problema).
+
+---
+
+## 🧪 Ejemplo del programa
+
+Si el usuario escribe: `1234`  
+La función hará esto:
+
+---
+
+## Código
+
+```csharp
 using System;
-// Este es un ejemplo de recursividad en C#
+
 class Program
 {
-    static void Main() // "Main" es el punto de entrada del programa, o sea, el jefe
+    static void Main()
     {
-        // Aqui va la interaccion con el usuario
-        Console.WriteLine("Escribe un numero positivo:");
-        string entrada = Console.Readline();
+        Console.WriteLine("Escribe un número positivo:");
+        string entrada = Console.ReadLine();
 
         if (int.TryParse(entrada, out int numero) && numero >= 0)
         {
             int digitos = ContarDigitos(numero);
-            Console.WriteLine($"El número {numero} tiene {digitos} digito(s).");
+            Console.WriteLine($"El número {numero} tiene {digitos} dígito(s).");
         }
         else
         {
             Console.WriteLine("Por favor, ingresa un número positivo válido.");
         }
     }
-    // Aqui irá nuestra función recursiva
-    static int ContarDigitos(int numero) // "ContarDigitos" es el ayudante
+
+    static int ContarDigitos(int numero)
     {
         if (numero < 10)
             return 1;
